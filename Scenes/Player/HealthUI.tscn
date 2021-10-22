@@ -1,0 +1,130 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Sprites/Health.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/HealthUI.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/ShieldUI.png" type="Texture" id=3]
+[ext_resource path="res://Resources/bornsporty_titles.tres" type="DynamicFont" id=5]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 96, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 144, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 192, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 240, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 288, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 1 )
+region = Rect2( 336, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 1 )
+region = Rect2( 384, 0, 48, 48 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="HealthUI" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+modulate = Color( 1, 1, 1, 0.823529 )
+position = Vector2( -226.39, 119.384 )
+frames = SubResource( 10 )
+
+[node name="Timer" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.823529 )
+margin_left = -249.085
+margin_top = 55.1774
+margin_right = -67.085
+margin_bottom = 458.177
+rect_scale = Vector2( 0.23, 0.23 )
+custom_fonts/font = ExtResource( 5 )
+text = "10"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MadmanEnding" type="Label" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.470588 )
+margin_left = 103.311
+margin_top = -33.7993
+margin_right = 3022.31
+margin_bottom = 369.201
+rect_scale = Vector2( 0.11, 0.11 )
+custom_fonts/font = ExtResource( 5 )
+text = "madman_lbl"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shield" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.580392 )
+position = Vector2( 221.21, 116.349 )
+scale = Vector2( 1.53093, 1.53093 )
+texture = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = -250.39
+margin_top = -145.587
+margin_right = 743.61
+margin_bottom = 462.413
+rect_scale = Vector2( 0.1, 0.1 )
+custom_constants/separation = -34
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="VBoxContainer"]
+modulate = Color( 1, 1, 1, 0.470588 )
+margin_right = 994.0
+margin_bottom = 200.0
+custom_fonts/font = ExtResource( 5 )
+text = "Scone"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScore" type="Label" parent="VBoxContainer"]
+modulate = Color( 1, 1, 1, 0.470588 )
+margin_top = 166.0
+margin_right = 994.0
+margin_bottom = 366.0
+custom_fonts/font = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

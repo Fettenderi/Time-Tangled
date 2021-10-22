@@ -1,0 +1,105 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Scripts/Damage.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Boss.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Boss.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Misc/Stats.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Objects/Enemy Bullet.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Misc/HitSfx.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sfx/sfx_zapsplat_metal_hit1.wav" type="AudioStream" id=7]
+[ext_resource path="res://Scenes/Misc/BlinkAnimation.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Resources/blink_shader.tres" type="Material" id=9]
+[ext_resource path="res://Sfx/sfx_zapsplat_metal_hit2.wav" type="AudioStream" id=10]
+[ext_resource path="res://Sprites/Shockwave.png" type="Texture" id=11]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 15.2809, 5.27066 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Shockwave"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Area2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 4, 4 ), Vector2( 5.2, 5.2 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 32.0
+
+[node name="Boss" type="Node2D"]
+position = Vector2( -0.111359, 0 )
+rotation = 6.28318
+scale = Vector2( 2, 2 )
+script = ExtResource( 2 )
+bullet_scene = ExtResource( 5 )
+number_of_bullets = 18
+spawn_rate = 0.6
+bullet_speed = 1.5
+var1 = ExtResource( 7 )
+var2 = ExtResource( 10 )
+
+[node name="Sprite" type="Sprite" parent="."]
+material = ExtResource( 9 )
+rotation = -12.5664
+texture = ExtResource( 3 )
+
+[node name="Hitbox" type="Area2D" parent="."]
+rotation = -3.14159
+collision_layer = 2
+collision_mask = 2147483652
+script = ExtResource( 1 )
+damage = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="Stats" parent="." instance=ExtResource( 4 )]
+max_health = 700
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="BlinkAnimation" parent="." instance=ExtResource( 8 )]
+
+[node name="HitSfx" parent="." instance=ExtResource( 6 )]
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Shockwave = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="." groups=[
+"Shockwave",
+]]
+scale = Vector2( 0.2, 0.2 )
+collision_layer = 32
+collision_mask = 64
+
+[node name="Shockwave" type="Sprite" parent="Area2D"]
+visible = false
+texture = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 0.785398
+shape = SubResource( 3 )
+disabled = true
+
+[connection signal="area_entered" from="Hitbox" to="." method="hitbox_activated"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="no_health" from="Stats" to="." method="no_health"]
+[connection signal="animation_finished" from="BlinkAnimation" to="." method="blink_finished"]
+[connection signal="timeout" from="DeathTimer" to="." method="death_finished"]

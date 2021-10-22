@@ -1,0 +1,21 @@
+[gd_scene format=2]
+
+[node name="Blank" type="Node"]
+__meta__ = {
+"_editor_description_": "Cose imparate durante lo sviluppo:
+
+-Due singleton: PlayerStats e managment livelli/musica/pause menu etc. 
+-Usa nomi comprensibili e cambia sempre il nome dei segnali connessi negli script
+-Dichiara una variabile una volta, rendila esportabile e stop, non ne inizializzare il valore in 5 codici diversi
+-Dichiara sempre le connessioni con gli oggetti con onready var, rende il testo più comprensibile
+-Per perdere meno tempo con la UI: connetti i segnali di cambiamento delle variabili dal singleton con le stats e poi quando devi cambiare una variabile ti basta chiamare il singleton e la UI si ggiorna da sola (Es. PlayerStats.health -= area.damage)
+-Per rendere il codice più leggibile crea dei metodi che usi spesso nel singleton GameMachine (Es. set_pause_scene o reset_stats(forse questo ha più senso in PlayerStats))
+-Se vuoi avere un singleton per caricare tutto il gioco crea una scena placeholder per quando si aprirà il gioco, questo serve a non creare due istanze del gioco stesso
+
+Cose da fare:
+- 4x Shoot (?) (Se si si trova solo in livelli più alti)
+- Aumentare difficoltà boss:
+	- Implosione
+	- Si può camperare in alto
+	- Ogni boss aumenta la vita"
+}

@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Misc/Camera.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Objects/Double Shoot.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Objects/Stopwatch.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Objects/Single Shoot.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Objects/Triple Shoot.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Enemies/Level1/Enemy0.tscn" type="PackedScene" id=8]
+
+[node name="Level" type="Node2D"]
+pause_mode = 1
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+margin_left = -220.0
+margin_top = -292.0
+margin_right = 680.0
+margin_bottom = 608.0
+color = Color( 0.0509804, 0.0470588, 0.0705882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" parent="." instance=ExtResource( 1 )]
+offset = Vector2( 255, 150 )
+current = true
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 250, 270 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource( 8 )]
+position = Vector2( 401.687, 75.6574 )
+
+[node name="Bullets" type="Node2D" parent="."]
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Stopwatch" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 251.574, 221.377 )
+
+[node name="Stopwatch3" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 250.78, 118.99 )
+
+[node name="Stopwatch2" parent="Objects" instance=ExtResource( 5 )]
+position = Vector2( 249.987, 33.2702 )
+
+[node name="Double Shoot" parent="Objects" instance=ExtResource( 3 )]
+position = Vector2( 73.478, 163.852 )
+
+[node name="Single Shoot" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 75.9979, 225.588 )
+
+[node name="Triple Shoot" parent="Objects" instance=ExtResource( 7 )]
+position = Vector2( 74.108, 106.525 )
+
+[node name="Spawn" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Spawn" to="." method="spawn"]

@@ -1,0 +1,40 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform bool active = false;
+uniform bool shield = false;
+
+void fragment() {
+	vec4 previous_color = texture(TEXTURE, UV);
+	vec4 white_color = vec4(1.0,1.0,1.0,previous_color.a);
+	vec4 shield_color = vec4(0.2,0.8,1.0,previous_color.a);
+	vec4 black_color = vec4(0.0,0.0,0.0,previous_color.a);
+	
+	vec4 new_color = previous_color;
+	if (active) {
+		if (shield) {
+			if (previous_color == white_color) {
+				new_color = black_color;
+			} else {
+				new_color = shield_color;
+			}
+		} else {
+			if (previous_color == white_color) {
+				new_color = black_color;
+			} else {
+				new_color = white_color;
+			}
+		}
+		
+	}
+	COLOR = new_color;
+}"
+
+[resource]
+resource_local_to_scene = true
+shader = SubResource( 1 )
+shader_param/active = false
+shader_param/shield = false
