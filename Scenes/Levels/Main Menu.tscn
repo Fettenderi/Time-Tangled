@@ -1,0 +1,394 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Scripts/Main Menu.gd" type="Script" id=1]
+[ext_resource path="res://Sfx/sfx_zapsplat_laser.wav" type="AudioStream" id=2]
+[ext_resource path="res://Resources/bornsporty_titles.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Resources/theme.tres" type="Theme" id=4]
+[ext_resource path="res://Scenes/Levels/Background.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/Trophy.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Trophy2.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Asteroid3.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Italian.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Asteroid2.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/English.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Asteroid1.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/EnglishHover.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/ItalianHover.png" type="Texture" id=14]
+
+[sub_resource type="Animation" id=1]
+resource_name = "anim"
+length = 60.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Asteroid3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 6, 20, 32.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 743.628, -286.854 ), Vector2( 538.555, -54.7697 ), Vector2( 188.229, 336.827 ), Vector2( 583.321, 327.595 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Asteroid3:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 25.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 180.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Asteroid2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 24.9, 35.1, 42 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -229.224, -292.161 ), Vector2( 44.875, -30.1961 ), Vector2( 418.706, 327.085 ), Vector2( -81.2939, 333.085 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Asteroid2:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 17.2, 39.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Asteroid1:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 36.8, 50.0755, 54, 57.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 149.527, 552.885 ), Vector2( 242.519, 322.451 ), Vector2( 386.823, -35.1331 ), Vector2( 593.808, -31.5936 ), Vector2( 577.783, 334.848 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Asteroid1:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 36.2, 50.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 233.832 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Credits/Asteroid3:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.1, 60 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -360.0 ]
+}
+
+[node name="Main Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -200.0
+margin_top = -300.0
+margin_right = 700.0
+margin_bottom = 600.0
+color = Color( 0.0509804, 0.0470588, 0.0705882, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.588235 )
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Asteroid3" type="Sprite" parent="."]
+position = Vector2( 743.628, -286.854 )
+texture = ExtResource( 8 )
+
+[node name="Asteroid2" type="Sprite" parent="."]
+position = Vector2( -229.224, -292.161 )
+rotation = 2.85147
+texture = ExtResource( 10 )
+
+[node name="Asteroid1" type="Sprite" parent="."]
+position = Vector2( 149.527, 552.885 )
+rotation = 3.20471
+texture = ExtResource( 12 )
+
+[node name="Debug" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="Label" parent="Credits"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 33.3258
+margin_top = -126.453
+margin_right = 582.326
+margin_bottom = 81.547
+rect_scale = Vector2( 0.35, 0.35 )
+custom_fonts/font = ExtResource( 3 )
+text = "credits_label"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="Credits"]
+margin_left = 40.0
+margin_top = 86.8369
+margin_right = 255.0
+margin_bottom = 224.837
+text = "credits_text"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="Credits"]
+margin_left = 40.0
+margin_top = 250.0
+margin_right = 108.0
+margin_bottom = 274.0
+text = "back_btn"
+
+[node name="Asteroid3" type="Sprite" parent="Credits"]
+position = Vector2( 454.666, 199.893 )
+rotation = -1.74846e-07
+texture = ExtResource( 8 )
+
+[node name="Main" type="Control" parent="."]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Main"]
+stream = ExtResource( 2 )
+volume_db = -15.0
+bus = "Sfx"
+
+[node name="CloseButton" type="Button" parent="Main"]
+visible = false
+margin_left = 40.0
+margin_top = 206.132
+margin_right = 99.0
+margin_bottom = 230.132
+text = "Close"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Main2" type="Label" parent="Main"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 31.3236
+margin_top = 33.0
+margin_right = 995.324
+margin_bottom = 241.0
+rect_scale = Vector2( 0.35, 0.35 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 0.956863, 1 )
+text = "Time Tangled"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Italian" type="TextureButton" parent="Main"]
+margin_left = 42.3784
+margin_top = 250.0
+margin_right = 82.3784
+margin_bottom = 290.0
+focus_neighbour_left = NodePath("../English")
+focus_neighbour_top = NodePath("../VBoxContainer/TutorialButton")
+focus_neighbour_right = NodePath("../English")
+focus_neighbour_bottom = NodePath("../VBoxContainer/PlayButton")
+texture_normal = ExtResource( 9 )
+texture_hover = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="English" type="TextureButton" parent="Main"]
+margin_left = 75.0816
+margin_top = 250.0
+margin_right = 115.082
+margin_bottom = 290.0
+focus_neighbour_left = NodePath("../Italian")
+focus_neighbour_top = NodePath("../VBoxContainer2/FullscreenToggle")
+focus_neighbour_right = NodePath("../Italian")
+focus_neighbour_bottom = NodePath("../VBoxContainer2/MusicToggle")
+texture_normal = ExtResource( 11 )
+texture_hover = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main"]
+margin_left = 42.0
+margin_top = 121.632
+margin_right = 170.0
+margin_bottom = 201.632
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="Button" parent="Main/VBoxContainer"]
+margin_right = 128.0
+margin_bottom = 24.0
+focus_neighbour_left = NodePath("../../VBoxContainer2/MusicToggle")
+focus_neighbour_top = NodePath("../../Italian")
+focus_neighbour_right = NodePath("../../VBoxContainer2/MusicToggle")
+focus_neighbour_bottom = NodePath("../CreditsButton")
+text = "play_btn"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditsButton" type="Button" parent="Main/VBoxContainer"]
+margin_top = 28.0
+margin_right = 128.0
+margin_bottom = 52.0
+focus_neighbour_left = NodePath("../../VBoxContainer2/SfxToggle")
+focus_neighbour_top = NodePath("../PlayButton")
+focus_neighbour_right = NodePath("../../VBoxContainer2/SfxToggle")
+focus_neighbour_bottom = NodePath("../TutorialButton")
+text = "credits_label"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TutorialButton" type="Button" parent="Main/VBoxContainer"]
+margin_top = 56.0
+margin_right = 128.0
+margin_bottom = 80.0
+focus_neighbour_left = NodePath("../../VBoxContainer2/FullscreenToggle")
+focus_neighbour_top = NodePath("../CreditsButton")
+focus_neighbour_right = NodePath("../../VBoxContainer2/FullscreenToggle")
+focus_neighbour_bottom = NodePath("../../Italian")
+text = "Tutorial"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Main"]
+margin_left = 184.0
+margin_top = 121.632
+margin_right = 312.0
+margin_bottom = 201.632
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="MusicToggle" type="Button" parent="Main/VBoxContainer2"]
+margin_right = 128.0
+margin_bottom = 24.0
+focus_neighbour_left = NodePath("../../VBoxContainer/PlayButton")
+focus_neighbour_top = NodePath("../../English")
+focus_neighbour_right = NodePath("../../VBoxContainer/PlayButton")
+focus_neighbour_bottom = NodePath("../SfxToggle")
+toggle_mode = true
+text = "music_btn"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SfxToggle" type="Button" parent="Main/VBoxContainer2"]
+margin_top = 28.0
+margin_right = 128.0
+margin_bottom = 52.0
+focus_neighbour_left = NodePath("../../VBoxContainer/CreditsButton")
+focus_neighbour_top = NodePath("../MusicToggle")
+focus_neighbour_right = NodePath("../../VBoxContainer/CreditsButton")
+focus_neighbour_bottom = NodePath("../FullscreenToggle")
+toggle_mode = true
+text = "sfx_btn"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FullscreenToggle" type="Button" parent="Main/VBoxContainer2"]
+margin_top = 56.0
+margin_right = 128.0
+margin_bottom = 80.0
+focus_neighbour_left = NodePath("../../VBoxContainer/TutorialButton")
+focus_neighbour_top = NodePath("../SfxToggle")
+focus_neighbour_right = NodePath("../../VBoxContainer/TutorialButton")
+focus_neighbour_bottom = NodePath("../../English")
+toggle_mode = true
+text = "fullscreen_btn"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Madman" type="Sprite" parent="."]
+visible = false
+position = Vector2( 427.076, 264.298 )
+scale = Vector2( 1.25, 1.25 )
+texture = ExtResource( 6 )
+
+[node name="FirstBoss" type="Sprite" parent="."]
+visible = false
+position = Vector2( 473.868, 264.298 )
+scale = Vector2( 1.25, 1.25 )
+texture = ExtResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "anim"
+anims/anim = SubResource( 1 )
+
+[connection signal="pressed" from="Credits/BackButton" to="." method="back"]
+[connection signal="pressed" from="Main/CloseButton" to="." method="close"]
+[connection signal="pressed" from="Main/Italian" to="." method="italian_pressed"]
+[connection signal="pressed" from="Main/English" to="." method="english_pressed"]
+[connection signal="pressed" from="Main/VBoxContainer/PlayButton" to="." method="play"]
+[connection signal="pressed" from="Main/VBoxContainer/CreditsButton" to="." method="credits"]
+[connection signal="pressed" from="Main/VBoxContainer/TutorialButton" to="." method="tutorial"]
+[connection signal="toggled" from="Main/VBoxContainer2/MusicToggle" to="." method="music_toggle"]
+[connection signal="toggled" from="Main/VBoxContainer2/SfxToggle" to="." method="sfx_toggle"]
+[connection signal="toggled" from="Main/VBoxContainer2/FullscreenToggle" to="." method="fullscreen_toggle"]

@@ -1,0 +1,45 @@
+keys,en,it
+r_and_esc,"Press 'R' to skip the tutorial or to restart
+Press 'Esc' to pause the game ","Premi 'R' per saltare il tutorial o per ricominciare
+Premi 'Esc' per mettere in pausa "
+donut1,Avoid the asteroids,Evita gli asteroidi
+donut2,Destroy the donuts for points,Distruggi le ciambelle per punti
+donut3,... kill the enemies,... uccidi i nemici
+donut4,... pick the power ups,... prendi i potenziamenti
+donut5,... and don't let the timer reach 0!,... e non far scadere il timer!
+move,To move,Per muoversi
+shoot,To shoot,Per sparare
+play_btn,Play,Gioca
+credits_label,Credits,Crediti
+credits_text,"Game made with Godot
+Music from Ecrett Music
+Sounds from Zapsplat
+Sprites made with Aseprite
+Code inspired by SkyanSan's video
+Backgrounds made with Deep Fold's generator (deep-fold.itch.io)
+
+Game made by Fettenderi","Gioco realizzato con Godot
+Musica da Ecrett Music
+Suoni da Zapsplat
+Sprite realizzate con Aseprite
+Codice inspirato dal video di SkyanSan
+Sfondi generati con gli strumenti di Deep Fold (deep-fold.itch.io)
+
+Gioco realizzato da Fettenderi"
+music_btn,Music,Musica
+sfx_btn,Sounds,Suoni
+back_btn,Back,Indietro
+paused_label,Game Paused,Gioco in Pausa
+continue_btn,Continue,Continua
+bttitle_btn,Back To Title,Ritorna Al Titolo
+dmg_up,Dmg Up,Danno Più
+full_health,Full HP,Vita Max
+shield,Shield,Scudo
+shoot1,1x Shoot,1x Proiettili
+shoot2,2x Shoot,2x Proiettili
+shoot3,3x Shoot,3x Proiettili
+stopwatch,10+ Time,10+ Secondi
+fullscreen_btn,Fullscreen,Schermo Intero
+score_lbl,Score,Punteggio
+high_score_lbl,Highscore,Miglior Punteggio
+madman_lbl,"You got so OP, you broke the game lol!","Sei diventato così forte da rompere il gioco, lol!"

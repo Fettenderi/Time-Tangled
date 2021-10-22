@@ -1,0 +1,57 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scripts/Enemy1.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Damage.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Enemy Ship1.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Misc/Stats.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Misc/HitSfx.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sfx/sfx_zapsplat_metal_hit1.wav" type="AudioStream" id=6]
+[ext_resource path="res://Resources/blink_shader.tres" type="Material" id=7]
+[ext_resource path="res://Scenes/Misc/BlinkAnimation.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sfx/sfx_zapsplat_metal_hit2.wav" type="AudioStream" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6, 7 )
+
+[node name="Enemy" type="Node2D"]
+scale = Vector2( 2, 2 )
+script = ExtResource( 1 )
+var1 = ExtResource( 6 )
+var2 = ExtResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="."]
+material = ExtResource( 7 )
+texture = ExtResource( 3 )
+
+[node name="Hitbox" type="Area2D" parent="."]
+rotation = -3.14159
+collision_layer = 2
+collision_mask = 2147483652
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="Guns" type="Node2D" parent="."]
+rotation = -1.57079
+
+[node name="Gun1" type="Position2D" parent="Guns"]
+position = Vector2( 4.5, -5.5 )
+
+[node name="Gun2" type="Position2D" parent="Guns"]
+position = Vector2( 4.5, 5.5 )
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Stats" parent="." instance=ExtResource( 4 )]
+max_health = 15
+
+[node name="BlinkAnimation" parent="." instance=ExtResource( 8 )]
+
+[node name="HitSfx" parent="." instance=ExtResource( 5 )]
+
+[connection signal="area_entered" from="Hitbox" to="." method="hitbox_activated"]
+[connection signal="timeout" from="Timer" to="." method="bullet_delay"]
+[connection signal="no_health" from="Stats" to="." method="no_health"]

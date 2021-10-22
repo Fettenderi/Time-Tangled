@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/stf_zapsplat_ticking.mp3-be6eb9f7f02dfc47b626820aba8eaa70.mp3str"
+
+[deps]
+
+source_file="res://Sfx/stf_zapsplat_ticking.mp3"
+dest_files=[ "res://.import/stf_zapsplat_ticking.mp3-be6eb9f7f02dfc47b626820aba8eaa70.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

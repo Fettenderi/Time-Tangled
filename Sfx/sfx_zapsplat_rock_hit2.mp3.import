@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sfx_zapsplat_rock_hit2.mp3-c37b52bf816bbad8141a036893eb9d85.mp3str"
+
+[deps]
+
+source_file="res://Sfx/sfx_zapsplat_rock_hit2.mp3"
+dest_files=[ "res://.import/sfx_zapsplat_rock_hit2.mp3-c37b52bf816bbad8141a036893eb9d85.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

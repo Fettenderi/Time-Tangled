@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Levels/Background.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Misc/Camera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Objects/Asteroid Spawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Level.gd" type="Script" id=5]
+
+[node name="Level" type="Node2D"]
+pause_mode = 1
+script = ExtResource( 5 )
+level_offset = 4
+enemies = [ "res://Scenes/Enemies/Level4/Enemy1.tscn", "res://Scenes/Enemies/Level4/Enemy2.tscn", "res://Scenes/Enemies/Level4/Enemy3.tscn", "res://Scenes/Enemies/Level4/Enemy4.tscn", "res://Scenes/Enemies/Level4/Enemy5.tscn", "res://Scenes/Enemies/Level4/Enemy5.tscn", "res://Scenes/Enemies/Level4/Enemy6.tscn", "res://Scenes/Enemies/Level4/Enemy6.tscn", "res://Scenes/Enemies/Level4/Enemy7.tscn", "res://Scenes/Enemies/Level3/Enemy1.tscn", "res://Scenes/Enemies/Level3/Enemy1.tscn" ]
+boss_id = "res://Scenes/Enemies/Level5/Boss.tscn"
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+margin_left = -220.0
+margin_top = -292.0
+margin_right = 680.0
+margin_bottom = 608.0
+color = Color( 0.0509804, 0.0470588, 0.0705882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="TextureRect" parent="Background"]
+modulate = Color( 1, 1, 1, 0.588235 )
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" parent="." instance=ExtResource( 2 )]
+offset = Vector2( 255, 150 )
+current = true
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 250, 270 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Asteroid Spawner" parent="Objects" instance=ExtResource( 3 )]
+position = Vector2( 0, 150 )
+
+[node name="Asteroid Spawner2" parent="Objects" instance=ExtResource( 3 )]
+position = Vector2( 512, 150 )
+rotation = 3.14159
+dx = false
+
+[node name="Bullets" type="Node2D" parent="."]
+
+[node name="Spawn" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Spawn" to="." method="spawn"]

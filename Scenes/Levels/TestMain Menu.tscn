@@ -1,0 +1,259 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Resources/theme.tres" type="Theme" id=1]
+[ext_resource path="res://Sprites/Bg3.png" type="Texture" id=2]
+[ext_resource path="res://Sfx/sfx_zapsplat_laser.wav" type="AudioStream" id=3]
+[ext_resource path="res://Sprites/Trophy.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Trophy2.png" type="Texture" id=5]
+[ext_resource path="res://Resources/bornsporty_titles.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Scripts/Main Menu.gd" type="Script" id=7]
+
+[node name="Main Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -200.0
+margin_top = -300.0
+margin_right = 700.0
+margin_bottom = 600.0
+color = Color( 0.0509804, 0.0470588, 0.0705882, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.784314 )
+margin_top = 16.0181
+margin_right = 512.0
+margin_bottom = 316.018
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Debug" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="Label" parent="Credits"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 33.3258
+margin_top = -126.453
+margin_right = 582.326
+margin_bottom = 81.547
+rect_scale = Vector2( 0.35, 0.35 )
+custom_fonts/font = ExtResource( 6 )
+text = "Credits"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="Credits"]
+margin_left = 40.0
+margin_top = 103.764
+margin_right = 216.0
+margin_bottom = 208.764
+text = "Game made with Godot
+Music from Ecrett Music
+Sounds from Zapsplat
+Sprites made with Aseprite
+Code inspired by SkyanSan's video
+
+Game made by Fettenderi"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="Credits"]
+margin_left = 40.0
+margin_top = 250.0
+margin_right = 108.0
+margin_bottom = 274.0
+text = "Back"
+
+[node name="Main" type="Control" parent="."]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Main"]
+stream = ExtResource( 3 )
+volume_db = -15.0
+bus = "Sfx"
+
+[node name="CloseButton" type="Button" parent="Main"]
+visible = false
+margin_left = 40.0
+margin_top = 206.132
+margin_right = 99.0
+margin_bottom = 230.132
+text = "Close"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Main2" type="Label" parent="Main"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 31.3236
+margin_top = 33.0
+margin_right = 995.324
+margin_bottom = 241.0
+rect_scale = Vector2( 0.35, 0.35 )
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 1, 1, 0.956863, 1 )
+text = "Time Tangled"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="Button" parent="Main"]
+margin_left = 40.0
+margin_top = 121.0
+margin_right = 186.0
+margin_bottom = 145.0
+focus_neighbour_left = NodePath("../../SecondColumn/MusicToggle")
+focus_neighbour_top = NodePath("../TutorialButton")
+focus_neighbour_right = NodePath("../../SecondColumn/MusicToggle")
+focus_neighbour_bottom = NodePath("../CreditsButton")
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditsButton" type="Button" parent="Main"]
+margin_left = 40.0
+margin_top = 149.0
+margin_right = 98.0
+margin_bottom = 173.0
+focus_neighbour_left = NodePath("../../SecondColumn/SfxToggle")
+focus_neighbour_top = NodePath("../PlayButton")
+focus_neighbour_right = NodePath("../../SecondColumn/SfxToggle")
+focus_neighbour_bottom = NodePath("../TutorialButton")
+text = "Credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TutorialButton" type="Button" parent="Main"]
+margin_left = 40.0
+margin_top = 177.0
+margin_right = 98.0
+margin_bottom = 201.0
+focus_neighbour_left = NodePath("../../SecondColumn/FullscreenToggle")
+focus_neighbour_top = NodePath("../CreditsButton")
+focus_neighbour_right = NodePath("../../SecondColumn/FullscreenToggle")
+focus_neighbour_bottom = NodePath("../PlayButton")
+text = "Tutorial"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicToggle" type="Button" parent="Main"]
+margin_left = 187.0
+margin_top = 121.0
+margin_right = 372.0
+margin_bottom = 145.0
+focus_neighbour_left = NodePath("../../FirstColumn/PlayButton")
+focus_neighbour_top = NodePath("../FullscreenToggle")
+focus_neighbour_right = NodePath("../../FirstColumn/PlayButton")
+focus_neighbour_bottom = NodePath("../SfxToggle")
+toggle_mode = true
+text = "Music"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SfxToggle" type="Button" parent="Main"]
+margin_left = 187.0
+margin_top = 149.0
+margin_right = 293.0
+margin_bottom = 173.0
+focus_neighbour_left = NodePath("../../FirstColumn/CreditsButton")
+focus_neighbour_top = NodePath("../MusicToggle")
+focus_neighbour_right = NodePath("../../FirstColumn/CreditsButton")
+focus_neighbour_bottom = NodePath("../FullscreenToggle")
+toggle_mode = true
+text = "Sfx"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FullscreenToggle" type="Button" parent="Main"]
+margin_left = 187.0
+margin_top = 177.0
+margin_right = 261.0
+margin_bottom = 201.0
+focus_neighbour_left = NodePath("../../FirstColumn/TutorialButton")
+focus_neighbour_top = NodePath("../SfxToggle")
+focus_neighbour_right = NodePath("../../FirstColumn/TutorialButton")
+focus_neighbour_bottom = NodePath("../MusicToggle")
+toggle_mode = true
+text = "Fullscreen"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="HBoxContainer" parent="Main"]
+margin_left = 40.0
+margin_top = 121.0
+margin_right = 371.0
+margin_bottom = 247.809
+custom_constants/separation = 89
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FirstColumn" type="VBoxContainer" parent="Main/Buttons"]
+margin_bottom = 126.0
+
+[node name="SecondColumn" type="VBoxContainer" parent="Main/Buttons"]
+margin_left = 89.0
+margin_right = 89.0
+margin_bottom = 126.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Madman" type="Sprite" parent="."]
+visible = false
+position = Vector2( 427.076, 264.298 )
+scale = Vector2( 1.25, 1.25 )
+texture = ExtResource( 4 )
+
+[node name="FirstBoss" type="Sprite" parent="."]
+visible = false
+position = Vector2( 473.868, 264.298 )
+scale = Vector2( 1.25, 1.25 )
+texture = ExtResource( 5 )
+
+[connection signal="pressed" from="Credits/BackButton" to="." method="back"]
+[connection signal="pressed" from="Main/CloseButton" to="." method="close"]
+[connection signal="pressed" from="Main/PlayButton" to="." method="play"]
+[connection signal="pressed" from="Main/CreditsButton" to="." method="credits"]
+[connection signal="pressed" from="Main/TutorialButton" to="." method="tutorial"]
+[connection signal="toggled" from="Main/MusicToggle" to="." method="music_toggle"]
+[connection signal="toggled" from="Main/SfxToggle" to="." method="sfx_toggle"]
+[connection signal="toggled" from="Main/FullscreenToggle" to="." method="fullscreen_toggle"]

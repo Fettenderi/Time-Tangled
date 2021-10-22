@@ -1,0 +1,187 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Resources/bornsporty_titles.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scripts/Pause Menu.gd" type="Script" id=2]
+[ext_resource path="res://Resources/theme.tres" type="Theme" id=3]
+[ext_resource path="res://Sfx/sfx_zapsplat_laser.wav" type="AudioStream" id=4]
+
+[sub_resource type="Animation" id=1]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Unpause/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "3", "2", "1", "" ]
+}
+
+[node name="Pause Menu" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="Back" type="ColorRect" parent="."]
+visible = false
+margin_left = -200.0
+margin_top = -300.0
+margin_right = 700.0
+margin_bottom = 600.0
+color = Color( 0.0509804, 0.0470588, 0.0705882, 0.207843 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Pause" type="Control" parent="."]
+visible = false
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Pause"]
+stream = ExtResource( 4 )
+volume_db = -15.0
+bus = "Sfx"
+
+[node name="Main" type="Label" parent="Pause"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 40.0
+margin_top = 32.9266
+margin_right = 214.0
+margin_bottom = 91.9266
+rect_scale = Vector2( 0.35, 0.35 )
+custom_fonts/font = ExtResource( 1 )
+text = "paused_label"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause"]
+margin_left = 42.0
+margin_top = 137.331
+margin_right = 170.0
+margin_bottom = 189.331
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContinueButton" type="Button" parent="Pause/VBoxContainer"]
+margin_right = 128.0
+margin_bottom = 24.0
+focus_neighbour_left = NodePath("../../VBoxContainer2/MusicToggle")
+focus_neighbour_top = NodePath("../BackButton")
+focus_neighbour_right = NodePath("../../VBoxContainer2/MusicToggle")
+focus_neighbour_bottom = NodePath("../BackButton")
+text = "continue_btn"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="Pause/VBoxContainer"]
+margin_top = 28.0
+margin_right = 128.0
+margin_bottom = 52.0
+focus_neighbour_left = NodePath("../../VBoxContainer2/FullscreenToggle")
+focus_neighbour_top = NodePath("../ContinueButton")
+focus_neighbour_right = NodePath("../../VBoxContainer2/FullscreenToggle")
+focus_neighbour_bottom = NodePath("../ContinueButton")
+text = "bttitle_btn"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Pause"]
+margin_left = 184.0
+margin_top = 119.063
+margin_right = 312.0
+margin_bottom = 199.063
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicToggle" type="Button" parent="Pause/VBoxContainer2"]
+margin_right = 128.0
+margin_bottom = 24.0
+focus_neighbour_left = NodePath("../../VBoxContainer/ContinueButton")
+focus_neighbour_top = NodePath("../FullscreenToggle")
+focus_neighbour_right = NodePath("../../VBoxContainer/ContinueButton")
+focus_neighbour_bottom = NodePath("../SfxToggle")
+toggle_mode = true
+text = "music_btn"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="SfxToggle" type="Button" parent="Pause/VBoxContainer2"]
+margin_top = 28.0
+margin_right = 128.0
+margin_bottom = 52.0
+focus_neighbour_left = NodePath("../../VBoxContainer/ContinueButton")
+focus_neighbour_top = NodePath("../MusicToggle")
+focus_neighbour_right = NodePath("../../VBoxContainer/ContinueButton")
+focus_neighbour_bottom = NodePath("../FullscreenToggle")
+toggle_mode = true
+text = "sfx_btn"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FullscreenToggle" type="Button" parent="Pause/VBoxContainer2"]
+margin_top = 56.0
+margin_right = 128.0
+margin_bottom = 80.0
+focus_neighbour_left = NodePath("../../VBoxContainer/BackButton")
+focus_neighbour_top = NodePath("../SfxToggle")
+focus_neighbour_right = NodePath("../../VBoxContainer/BackButton")
+focus_neighbour_bottom = NodePath("../MusicToggle")
+toggle_mode = true
+text = "fullscreen_btn"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Unpause" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Unpause"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 40.0
+margin_top = 12.9266
+margin_right = 290.0
+margin_bottom = 71.9266
+rect_scale = Vector2( 0.3, 0.3 )
+custom_fonts/font = ExtResource( 1 )
+text = "3"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Unpause = SubResource( 1 )
+
+[connection signal="pressed" from="Pause/VBoxContainer/ContinueButton" to="." method="continuee"]
+[connection signal="pressed" from="Pause/VBoxContainer/BackButton" to="." method="back"]
+[connection signal="toggled" from="Pause/VBoxContainer2/MusicToggle" to="." method="music_toggle"]
+[connection signal="toggled" from="Pause/VBoxContainer2/SfxToggle" to="." method="sfx_toggle"]
+[connection signal="toggled" from="Pause/VBoxContainer2/FullscreenToggle" to="." method="fullscreen_toggle"]
+[connection signal="timeout" from="Timer" to="." method="start"]
