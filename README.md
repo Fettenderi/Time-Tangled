@@ -12,8 +12,7 @@ R  or L1 to Restart
 
 # Credits
 
-Time Tangled is developed by [Fettenderi](https://fettenderi.itch.io) with the [Godot Game Engine](https://godotengine.org).
-Other resources:
-* Sprites: Aseprite
-* Musics: Ecrett Music
-* Backgrounds: [Deep Fold's generator](deep-fold.itch.io)
+Time Tangled was developed by [Fettenderi](https://fettenderi.itch.io).
+Useing these external assets:
+- Musics: Ecrett Music
+- Backgrounds: [Deep Fold's generator](deep-fold.itch.io)
